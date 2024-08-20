@@ -3,8 +3,8 @@ chmod +x bash_script.sh
 ./bash_script.sh
 
 # SSH Access
-ssh-keygen -R 86.50.169.104
-ssh ubuntu@86.50.169.104 -i ~/.ssh/new.pem
+ssh-keygen -R 86.50.168.61
+ssh ubuntu@86.50.168.61 -i ~/.ssh/new.pem
 
 # System Update and Package Installation
 sudo apt update

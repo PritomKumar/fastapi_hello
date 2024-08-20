@@ -48,13 +48,14 @@ sudo systemctl start caddy
 sudo systemctl enable caddy
 sudo systemctl status caddy
 
-# Special commands
-sudo systemctl reload caddy
-
 # IP Address for Access
 86.50.169.104:80
 
 # Service Management Commands
 sudo systemctl stop gunicorn.service
 sudo systemctl stop caddy
+
+# Special commands
+sudo systemctl reload caddy
+sudo systemctl restart caddy
 

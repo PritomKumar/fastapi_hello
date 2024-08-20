@@ -1,29 +1,33 @@
 ssh ubuntu@86.50.169.17 -i ~/.ssh/new.pem
+ssh ubuntu@86.50.169.104 -i ~/.ssh/new.pem
 
 sudo apt update
+sudo apt upgrade
 sudo apt-get install python3
-sudo apt-get -y install pyhton3-pip
-sudo apt-get -y install pyhton3-venv
+sudo apt install python3-pip
+sudo apt install python3.10-venv
 sudo apt update
 
 git clone https://github.com/PritomKumar/fastapi_hello.git
 cd fastapi_hello
 
 python3 -m venv venv
-
 source venv/bin/activate
+sudo apt update
+
 pip install --upgrade pip
 pip install -r requirements.txt
 uvicorn main:app
-
 sudo apt update
 
+
+# sudo pip3 install gunicorn
 sudo systemctl daemon-reload
 
 
 sudo nano /etc/systemd/system/gunicorn.service
-sudo systemctl enable gunicorn.service
 sudo systemctl start gunicorn.service
+sudo systemctl enable gunicorn.service
 sudo systemctl status gunicorn.service
 
 
@@ -34,8 +38,12 @@ sudo apt install -y caddy
 caddy version
 
 sudo nano /etc/caddy/Caddyfile
-sudo systemctl enable caddy
 sudo systemctl start caddy
+sudo systemctl enable caddy
 sudo systemctl status caddy
 
+
+86.50.169.104:80
+
+sudo systemctl stop gunicorn.service
 

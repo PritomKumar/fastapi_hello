@@ -1,7 +1,7 @@
 import multiprocessing
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 name = "gunicorn config for FastAPI - TutLinks.com"
 accesslog = "/home/ubuntu/fastapi_hello/gunicorn-access.log"

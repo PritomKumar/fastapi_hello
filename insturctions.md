@@ -55,7 +55,9 @@ sudo systemctl status caddy
 sudo systemctl stop gunicorn.service
 sudo systemctl stop caddy
 
-# Special commands
+# Special commands for caddy
 sudo systemctl reload caddy
 sudo systemctl restart caddy
 
+# To see changes restart gunicorn.service 
+sudo systemctl restart gunicorn.service

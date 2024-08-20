@@ -58,6 +58,9 @@ sudo systemctl status caddy
 # IP Address for Access
 86.50.168.61:80
 
+# manual check
+curl 86.50.168.61:80
+
 # Service Management Commands
 sudo systemctl stop gunicorn.service
 sudo systemctl stop caddy
@@ -75,3 +78,5 @@ systemctl --type=service --state=running
 
 # for known hosts
 ssh-keygen -R 86.50.169.104
+
+

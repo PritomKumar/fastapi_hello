@@ -1,3 +1,6 @@
+# bash
+chmod +x bash_script.sh
+./bash_script.sh
 
 # SSH Access
 ssh ubuntu@86.50.169.104 -i ~/.ssh/new.pem

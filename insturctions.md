@@ -3,6 +3,7 @@ chmod +x bash_script.sh
 ./bash_script.sh
 
 # SSH Access
+ssh-keygen -R 86.50.169.104
 ssh ubuntu@86.50.169.104 -i ~/.ssh/new.pem
 
 # System Update and Package Installation
@@ -13,8 +14,12 @@ sudo apt install python3-pip
 sudo apt install python3.10-venv
 sudo apt update
 
+# set up SSH on the persistant volumn
+ssh-keygen -t ed25519 -C "pritom.das@helsinki.fi"
+cat /home/ubuntu/.ssh/id_ed25519.pub
+
 # Git Repository Setup
-git clone https://github.com/PritomKumar/fastapi_hello.git
+git clone git@github.com:PritomKumar/fastapi_hello.git
 cd fastapi_hello
 
 # Python Virtual Environment Setup
@@ -30,9 +35,9 @@ sudo apt update
 
 # Gunicorn Setup
 ## sudo pip3 install gunicorn 
-sudo systemctl daemon-reload
-
 sudo nano /etc/systemd/system/gunicorn.service
+
+sudo systemctl daemon-reload
 sudo systemctl start gunicorn.service
 sudo systemctl enable gunicorn.service
 sudo systemctl status gunicorn.service
@@ -61,5 +66,12 @@ sudo systemctl stop caddy
 sudo systemctl reload caddy
 sudo systemctl restart caddy
 
-# To see changes restart gunicorn.service 
+# To see changes restart gunicorn.service and caddy
 sudo systemctl restart gunicorn.service
+sudo systemctl restart caddy
+
+# to check all running services
+systemctl --type=service --state=running
+
+# for known hosts
+ssh-keygen -R 86.50.169.104

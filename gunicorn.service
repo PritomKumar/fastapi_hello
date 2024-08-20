@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn web server for fastapi_hello
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/fastapi_hello
+Environment="PATH=/home/ubuntu/fastapi_hello/venv/bin"
+ExecStart=/home/ubuntu/fastapi_hello/venv/bin/gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target

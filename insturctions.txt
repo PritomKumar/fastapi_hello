@@ -1,0 +1,41 @@
+ssh ubuntu@86.50.169.17 -i ~/.ssh/new.pem
+
+sudo apt update
+sudo apt-get install python3
+sudo apt-get -y install pyhton3-pip
+sudo apt-get -y install pyhton3-venv
+sudo apt update
+
+git clone https://github.com/PritomKumar/fastapi_hello.git
+cd fastapi_hello
+
+python3 -m venv venv
+
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+uvicorn main:app
+
+sudo apt update
+
+sudo systemctl daemon-reload
+
+
+sudo nano /etc/systemd/system/gunicorn.service
+sudo systemctl enable gunicorn.service
+sudo systemctl start gunicorn.service
+sudo systemctl status gunicorn.service
+
+
+
+echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
+sudo apt update
+sudo apt install -y caddy
+caddy version
+
+sudo nano /etc/caddy/Caddyfile
+sudo systemctl enable caddy
+sudo systemctl start caddy
+sudo systemctl status caddy
+
+

@@ -1,6 +1,5 @@
 
 # SSH Access
-ssh ubuntu@86.50.169.17 -i ~/.ssh/new.pem
 ssh ubuntu@86.50.169.104 -i ~/.ssh/new.pem
 
 # System Update and Package Installation
